@@ -1,0 +1,9 @@
+{{#each articles}}
+<article class="uk-article">
+    <h1 class="uk-article-title">{{ title }}</h1>
+    <p class="uk-article-meta">{{ summary }}</p>
+    <span class="comment" uk-icon="comment" data-id="{{ id }}"></span>
+    <span class="delete" uk-icon="close" data-id="{{ id }}"></span>
+</article>
+<hr>
+{{/each}}
