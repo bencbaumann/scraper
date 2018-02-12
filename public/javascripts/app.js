@@ -110,8 +110,9 @@ const deleteNote = me =>{
         })
       }).then(res => res.json())
       .then(results => {
-        console.log(results);
-        return results;
+        const myModal = document.getElementById("my-modal");
+        myModal.parentNode.removeChild(myModal);
+
       })
       .catch(error => console.error('Error:', error))
 }
@@ -121,7 +122,9 @@ const createModal = props => {
     <div class="uk-modal-dialog uk-modal-body">
         <h2 class="uk-modal-title">${props.title}</h2>
         <h3>Notes</h3>
-        <p>${props.note ? `${props.note.body} <button data-id="${props.note._id}" class="delete-note" uk-icon="close" onClick="deleteNote(this)"></button>` : "No Note Saved"}</p>
+        <ul class="uk-list uk-list-striped">
+        ${props.notes ? props.notes.map(note => `<li>${note.body} <button data-id="${note._id}" class="delete-note" uk-icon="close" onClick="deleteNote(this)"></button></li>`).join(' ') : "Note Note Saved"}
+        </ul>
         <textarea id="note" class="uk-textarea"></textarea>
         <button id="save-note" data-id="${props._id}" class="uk-modal-close" type="button" onClick="saveNote(this)">Save</button>
     </div>
