@@ -125,8 +125,8 @@ const createModal = props => {
         <ul class="uk-list uk-list-striped">
         ${props.notes ? props.notes.map(note => `<li>${note.body} <button data-id="${note._id}" class="delete-note" uk-icon="close" onClick="deleteNote(this)"></button></li>`).join(' ') : "Note Note Saved"}
         </ul>
-        <textarea id="note" class="uk-textarea"></textarea>
-        <button id="save-note" data-id="${props._id}" class="uk-modal-close" type="button" onClick="saveNote(this)">Save</button>
+        <textarea id="note" class="uk-textarea" style='margin-bottom: 20px'></textarea>
+        <button id="save-note" data-id="${props._id}" class="uk-modal-close uk-button uk-button-secondary" type="button" onClick="saveNote(this)">Save</button>
     </div>
 </div>`;
 }
