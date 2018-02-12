@@ -9,7 +9,16 @@ const mongoose = require('mongoose');
 
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/news");
+if(process.env.NODE_ENV === "production"){
+  mongoose.connect("mongodb://localhost/news");
+}
+else {
+  mongoose.connect("mongodb://heroku_bzjt7nmc:98u5a9706epmg3kn8mf34urirc@ds231758.mlab.com:31758/heroku_bzjt7nmc");
+}
+
+
+
+
 // There's a warning that this is deprecated.
 // mongoose.connect("mongodb://localhost/news", {
 //   useMongoClient: true
