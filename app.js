@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-if(process.env.NODE_ENV === "production"){
+if(process.env.NODE_ENV !== "production"){
   mongoose.connect("mongodb://localhost/news");
 }
 else {
